@@ -1,0 +1,56 @@
+#:kivy 2.3.0
+<AdminWidget>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        padding: 5
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'Admin'
+            size_hint_x: 0.8  
+            halign: 'left'  
+            valign: 'middle'  
+            text_size: self.size  
+            padding_x: 10  
+            padding_y: 5    
+            
+
+        Button:
+            text: 'Logout'
+            size_hint_x: 0.2  
+    Label:
+        text: 'desa sanggung'
+        size_hint_y:0.5
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint: 1, 0.2 
+
+        Button:
+            text: 'persuratan'
+            height :20
+
+        Button:
+            text: 'pengaduan'
+            height : 20
+
+    GridLayout:
+        cols: 3
+        padding: 20
+        spacing: 10
+
+        Button:
+            text: 'struktur desa'
+
+        Button:
+            text: 'berita'
+
+        Button:
+            text: 'kegiatan desa'
+
