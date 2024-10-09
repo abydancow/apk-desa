@@ -1,0 +1,26 @@
+import os
+import kivy
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+# from kivy.graphics import Color, Line, Rectangle 
+from kivy.config import Config
+from kivy.lang import Builder 
+from kivy.uix.widget import Widget
+from kivy.core.window import Window
+
+
+class Registrasi(FloatLayout):
+    pass
+
+class RegistrasiApp(App):
+    def build(self):
+        Window.size = (360, 640)  # atur ukuran jendela ke 360x640
+        kv_file_path = os.path.join(os.path.dirname(__file__), '..', 'kivy', 'registrasi.kv')
+        Builder.load_file(kv_file_path)
+        return Registrasi()
+
+if __name__ =="__main__":
+    RegistrasiApp().run()

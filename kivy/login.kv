@@ -1,0 +1,141 @@
+#:kivy 2.3.0
+<LineTextInput@TextInput>:
+    background_color: (0, 0, 0, 0)
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 1  
+        Line:
+            points: [self.center_x - self.width / 2, self.y - self.line_offset, self.center_x + self.width / 2, self.y - self.line_offset]
+            width: 1
+    line_width: 1
+    line_offset: 3
+    size_hint_x: 0.8
+    
+
+<Login>:
+    BoxLayout:
+        halign: 'center'
+        orientation: 'vertical'
+        size: root.width, root.height
+        size_hint: (None, None)
+        spacing: 30
+        padding: 30
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'img/12.jpg' 
+                
+        Widget:
+            size_hint_x: 0.02 
+            
+        BoxLayout:
+            size_hint: 1, None 
+            height: root.height * 0.6 
+            halign: 'center'
+            orientation: 'vertical'
+            spacing: 30
+            padding: 30
+            anchor_center: True
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.19
+                RoundedRectangle:
+                    pos: (self.x - 2, self.y)
+                    size: self.size
+                    radius: [10]
+                Color:
+                    rgba: 0, 0, 0, 0.19
+                RoundedRectangle:
+                    pos: (self.x + 2, self.y)
+                    size: self.size
+                    radius: [10]
+                Color:
+                    rgba: 0, 0, 0, 0.23
+                RoundedRectangle:
+                    pos: (self.x, self.y - 4)
+                    size: (self.width, self.height + 3)
+                    radius: [10]
+                Color:
+                    rgba: 154, 199, 241, 0.7
+                RoundedRectangle:
+                    pos: self.pos  # Tidak ada offset
+                    size: self.size
+                    radius: [10]
+            
+            Label:
+                text: 'Login'
+                font_size: 30
+                font_name: 'arial'
+                color: 0, 0, 0, 1
+
+            Widget:
+                size_hint_x: 0.02 
+            Widget:
+                size_hint_x: 0.02 
+            Widget:
+                size_hint_x: 0.02 
+
+            LineTextInput:
+                id: username
+                hint_text: 'Masukkan username'
+                multiline: False
+                size_hint_y: None
+                height: 40
+                foreground_color: (0, 0, 0, 1)
+                line_width: 1
+                line_offset: 3
+                top: 10  
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            LineTextInput:
+                id: password
+                hint_text: 'Masukkan password'
+                multiline: False
+                size_hint_y: None
+                height: 40
+                foreground_color: (0, 0, 0, 1)
+                line_width: 1
+                line_offset: 3
+                top: 10  # 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            Widget:
+                size_hint_x: 0.02 
+
+            Button:
+                text: 'Login'
+                size_hint_y: None
+                height: '40dp'
+                size_hint_x: 0.5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                background_color: (0, 0, 0, 0)
+                color: (1, 1, 1, 1)  
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1 
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]  
+                # on_press: app.login(username.text, password.text)
+                # pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            Button:
+                text: 'belum memiliki akun ?'
+                font_size: 20
+                padding: 20
+                background_color: (0, 0, 0, 0)  
+                background_normal: ""  
+                color: 0, 0, 1, 0.75
+
+
+            Label:
+                id: error_label
+                text: ''
+                color: (1, 0, 0, 1)
+        Widget:
+            size_hint_x: 0.02 
+            

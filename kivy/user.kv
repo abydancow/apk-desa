@@ -1,0 +1,164 @@
+#:kivy 2.3.0
+<MyGrid>:
+    BoxLayout:
+        orientation:'vertical'
+        size: root.width, root.height
+        spacing: 30
+        padding: 20
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'img/13.jpg'  
+
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: (1, 0.4)  
+            background_color: 0, 0, 0, 0  
+            spacing: 50
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0  
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [0, 0, 30, 30]
+            BoxLayout:
+                orientation: 'horizontal'  
+                size_hint: (1, None)  
+                height: 60  
+                padding: 10
+                Label:
+                    text: "User"
+                    color: 0, 0, 0, 1  
+                    size_hint_x: 0.5  
+                    valign: 'top'
+                    text_size: self.size
+            
+                Spinner:
+                    text: "Pilihan"
+                    values: ["Persuratan", "Pengaduan", "LogOut"]  
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: 0, 0, 0, 0  
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 255.0  
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [10, 10, 10, 10]
+
+            Widget:
+                size_hint_x: 0.01   
+
+            Label:
+                text: 'DESA SANGGUNG Melayani pembuatan surat dan pengaduan'
+                padding: 10
+                color: 1, 1, 1, 1
+                font_size: 24
+                size_hint: (None, None)  
+                size: (300, 80)
+                halign: 'left'  
+                valign: 'middle'  
+                text_size: self.size  
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1  
+                    Line:
+                        points: [self.x, self.y - 8, self.x + self.width, self.y - 8]
+                        width: 1
+                        
+            Widget:
+                size_hint_x: 0.02  
+
+        PageLayout:
+            size_hint: (1, 0.2)
+            padding: 50
+            Button:
+                text: "Halaman 1"
+                background_color: 1, 1, 1, 1  
+            Button:
+                text: "Halaman 2"
+                background_color: 1, 1, 1, 1  
+            Button:
+                text: "Halaman 3"
+                background_color: 1, 1, 1, 1  
+
+        GridLayout:
+            cols: 2 
+            size_hint_y: (0.4)
+            spacing: 10
+            Button:
+                background_color: 1, 1, 1, 1 
+                size_hint_y: None 
+                height: 250
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x - 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x + 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.23
+                    RoundedRectangle:
+                        pos: (self.x, self.y - 3)
+                        size: (self.width, self.height + 4)
+                        radius: [5]
+                Image:
+                    source: 'img/6.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Struktur Desa'
+                    color: 1, 1, 1, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+
+            Button:
+                background_colour: 0, 0, 0, 0
+                size_hint_y: None  
+                height: 250
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x - 2, self.y)
+                        size: self.size
+                        radius: [5]
+
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x + 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.23
+                    RoundedRectangle:
+                        pos: (self.x, self.y - 3)
+                        size: (self.width, self.height + 4)
+                        radius: [5]
+                    
+                Image:
+                    source: 'img/7.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Pengumuman Desa'
+                    color: 1, 1, 1, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y

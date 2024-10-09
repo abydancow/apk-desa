@@ -1,0 +1,67 @@
+#:kivy 2.3.0
+            # gambar dalam buton
+            MyButton:             
+                text: 'Button 1'
+                Image:
+                    source: 'img/6.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.1, self.parent.height * 0.1
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2
+
+            # gambar dalam buton 2
+            Button:
+                background_color: 1, 1, 1, 1
+                size_hint_y: None  
+                height: 250
+                Image:
+                    source: 'img/7.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Pengumuman Desa'
+                    color: 1, 1, 1, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+
+                # box shadow
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x - 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x + 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.23
+                    RoundedRectangle:
+                        pos: (self.x, self.y - 3)
+                        size: (self.width, self.height + 4)
+                        radius: [5]
+
+            # button dengan border radius
+            Button:
+                text: 'Login'
+                size_hint_y: None
+                height: '40dp'
+                size_hint_x: 0.5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                background_color: (0, 0, 0, 0)
+                color: (1, 1, 1, 1)  
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1 
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]
+                    # import kivy folder
+                    kv_file_path = os.path.join(os.path.dirname(__file__), '..', 'nama folder', 'nama file.kv')
+                    Builder.load_file(kv_file_path)
