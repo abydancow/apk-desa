@@ -17,7 +17,7 @@ class Login(FloatLayout):
 
 class LoginApp(App):
     def build(self):
-        Window.size = (360, 640)  # atur ukuran jendela ke 360x640
+        Window.size = (360, 640)  
         kv_file_path = os.path.join(os.path.dirname(__file__), '..', 'kivy', 'login.kv')
         Builder.load_file(kv_file_path)
         return Login()
