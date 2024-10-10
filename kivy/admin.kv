@@ -1,0 +1,129 @@
+#:kivy 2.3.0
+<MyButton@Button>:
+    color: 0, 0, 0, 1
+    size_hint: 0.4, None
+    height: 250
+    background_color: 1, 1, 1, 1
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 0.19
+        RoundedRectangle:
+            pos: (self.x - 2, self.y)
+            size: self.size
+            radius: [5]
+
+        Color:
+            rgba: 0, 0, 0, 0.19
+        RoundedRectangle:
+            pos: (self.x + 2, self.y)
+            size: self.size
+            radius: [5]
+        Color:
+            rgba: 0, 0, 0, 0.23
+        RoundedRectangle:
+            pos: (self.x, self.y - 3)
+            size: (self.width, self.height + 4)
+            radius: [5]
+
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [5]
+
+<MyGrid>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        size: root.width, root.height
+        canvas.before:
+            Color:
+                rgba: 232, 231, 231, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: 'ADMIN'
+            color: 0, 0, 0, 1
+            size_hint: None, None 
+            size: 500, 50 
+        GridLayout:
+            cols: 2
+            spacing: 10
+            padding: 10
+            MyButton:
+                Image:
+                    source: 'img/8.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Pengaduan'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+            MyButton:
+                Image:
+                    source: 'img/9.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Persuratan'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+            MyButton:
+                Image:
+                    source: 'img/7.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Pengumuman'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+            MyButton:
+                Image:
+                    source: 'img/10.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Berita'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+            MyButton:
+                Image:
+                    source: 'img/6.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Struktur'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
+            MyButton:
+                Image:
+                    source: 'img/11.png'
+                    size_hint: None, None
+                    size: self.parent.width * 0.8, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                Label:
+                    text: 'Logout'
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    size: self.parent.width * 0.2, self.parent.height * 0.4
+                    pos: self.parent.center_x - self.width / 2, self.parent.y
