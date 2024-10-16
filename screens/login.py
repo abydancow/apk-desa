@@ -20,8 +20,8 @@ db = firebase.database()
 
 class LoginScreen(Screen):
     def login(self):
-        email = self.ids.email_input.text  # Ambil email dari input
-        password = self.ids.password_input.text  # Ambil password dari input
+        email = self.ids.email_input.text  
+        password = self.ids.password_input.text  
 
         # Validasi input
         if not email or not password:
@@ -29,30 +29,28 @@ class LoginScreen(Screen):
             return
 
         try:
-            # Login ke Firebase Authentication
             user = auth.sign_in_with_email_and_password(email, password)
-            user_id = user['localId']  # Mendapatkan UID pengguna
+            user_id = user['localId']  
             user_data = db.child("users").child(user_id).get().val()
             print("User Data:", user_data)
-            role = user_data.get('role')  # Mendapatkan role dari pengguna
+            role = user_data.get('role')  
             username = user_data.get('username')
-            print("Username:", username)  # Debug: Pastikan username berhasil diambil
+            print("Username:", username)  
 
             # Pindah ke layar UserScreen
             self.manager.current = 'user'
-            user_screen = self.manager.get_screen('user')  # Ambil instance UserScreen
+            user_screen = self.manager.get_screen('user')  
             user_screen.display_username(username)
             
 
-            # Arahkan ke halaman yang sesuai berdasarkan role
             if role == 'admin':
-                self.manager.current = 'admin'  # Ganti ke layar admin
+                self.manager.current = 'admin'  
             elif role == 'user':
-                self.manager.current = 'user'  # Ganti ke layar user
+                self.manager.current = 'user'  
             else:
                 self.show_popup("Error", "Role tidak dikenal.")
         except Exception as e:
-            self.show_popup("Error", str(e))  # Menampilkan kesalahan dalam popup
+            self.show_popup("Error", str(e))  
 
     def show_popup(self, title, message):
         popup = Popup(title=title, content=Label(text=message), size_hint=(0.6, 0.3))

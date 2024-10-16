@@ -24,7 +24,7 @@ class RegistrasiScreen(Screen):
         nik = self.ids.nik.text
         email = self.ids.email.text
         password = self.ids.password.text
-        role = "user"    # Ambil nilai dari Spinner
+        role = "user"    
 
         # Validasi input
         if not username or not nik or not email or not password:
@@ -32,29 +32,24 @@ class RegistrasiScreen(Screen):
             return
 
         try:
-            # Membuat pengguna baru
             user = auth.create_user_with_email_and_password(email, password)
-            user_id = user['localId']  # Menggunakan user ID yang dihasilkan
+            user_id = user['localId']  
 
-            # Menyimpan data pengguna di Realtime Database
             user_data = {
                 "user_id": user_id,
                 "username": username,
                 "email": email,
                 "nik": nik,
-                "role": role  # Simpan role yang dipilih
+                "role": role  
             }
             db.child("users").child(user_id).set(user_data)
 
-            # Reset input field setelah sukses registrasi
             self.ids.username.text = ""
             self.ids.nik.text = ""
             self.ids.email.text = ""
             self.ids.password.text = ""
-            # self.ids.role_spinner.text = "Pilih Role"  # Reset Spinner
 
-            # Pindah ke halaman login tanpa popup sukses
             self.manager.current = 'login'
 
         except Exception as e:
-            self.show_popup("Error", str(e))  # Menampilkan kesalahan dalam popup
+            self.show_popup("Error", str(e))  
