@@ -1,0 +1,543 @@
+#:kivy 2.3.0
+<UstrukturScreen>:
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 1, 0.1
+            padding: 10
+            spacing: 50
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.23
+                Rectangle:
+                    pos: (self.x, self.y - 3)
+                    size: (self.width, self.height + 4)
+            canvas:
+                Color:
+                    rgba: 167/255, 217/255, 255/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Button:
+                size_hint: None, None
+                height: 30
+                widht: 50
+                pos_hint: {'center_y': 0.8}  
+                x: self.parent.x + 20
+                on_press:
+                    app.root.current = 'user'
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x - 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x + 2, self.y)
+                        size: self.size
+                        radius: [5]
+                    Color:
+                        rgba: 0, 0, 0, 0.23
+                    RoundedRectangle:
+                        pos: (self.x, self.y - 3)
+                        size: (self.width, self.height + 4)
+                        radius: [5]
+                canvas:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [5]
+                Image:
+                    source: 'img/14.png'
+                    size_hint: None, None
+                    size: self.parent.width * 1, self.parent.height * 1
+                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2
+            Label:
+                text: 'STRUKTUR'
+                padding: [35, 10, 20, 10]
+                color: 0, 0, 0, 1
+                size_hint: None, None
+                size: self.parent.width * 0.71, self.parent.height * 0.8
+                pos_hint: {'x': 0.6, 'center_y': 0.3} 
+                valign: 'middle'
+                text_size: self.size  
+                font_size: 30
+        ScrollView:
+            size_hint: 1, 0.9
+            GridLayout:
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 30
+                padding: [30, 10] 
+                BoxLayout:
+                    id: '1'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kepala Desa'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Nama kepala desa'
+                        color: 0, 0, 0, 1
+                BoxLayout:
+                    id: '2'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Sekretaris Desa'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Nama Sekretaris Desa'
+                        color: 0, 0, 0, 1
+                
+                BoxLayout:
+                    id: '3'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kasi Pemerintahan'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Nama Kasi Pemerintahan'
+                        color: 0, 0, 0, 1
+                
+                BoxLayout:
+                    id: '4'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kasi Kesejahteraan'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Nama Kasi Kesejahteraan'
+                        color: 0, 0, 0, 1
+                BoxLayout:
+                    id: '5'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kasi Pelayanan'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Nama Kasi Pelayanan'
+                        color: 0, 0, 0, 1
+
+                BoxLayout:
+                    id: '6'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kepala Dusun 2'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Kepala Dusun 1'
+                        color: 0, 0, 0, 1
+
+                BoxLayout:
+                    id: '7'
+                    orientation:'vertical'
+                    size_hint:1, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 10, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 10] 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: None, None
+                        width: 400  
+                        height: 120 
+                        Image:
+                            source: 'img/p4.jpg'
+                            size_hint: None, None
+                            widht:100
+                            height:100
+                            padding: 20
+                        Label:
+                            text: 'Kepala Dusun 2'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            halign: 'center'
+                            valign: 'center'
+                            text_size: self.size
+                            size: 200, 100
+                    Widget:
+                        size_hint: 0.8, None
+                        height: 1.5  
+                        pos_hint: {"center_x": 0.5}
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1  
+                            Line:
+                                points: [self.x, self.center_y, self.right, self.center_y]  
+                                width: 1
+                    Label:
+                        text: 'Kepala Dusun 2'
+                        color: 0, 0, 0, 1

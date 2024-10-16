@@ -1,0 +1,79 @@
+import os
+import pyrebase
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.filechooser import FileChooserIconView
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+
+# Konfigurasi Firebase
+firebase_config = {
+    "apiKey": "AIzaSyDcPf3IXEcInnLVLGSfo9b2pgyNsfn_CqI",
+    "authDomain": "apk-desa-cfcf3.firebaseapp.com",
+    "databaseURL": "https://apk-desa-cfcf3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "projectId": "apk-desa-cfcf3",
+    "storageBucket": "apk-desa-cfcf3.appspot.com",
+    "messagingSenderId": "520440091443",
+    "appId": "1:520440091443:android:ac6dcc378e056989f42446"
+}
+
+# Inisialisasi Firebase
+firebase = pyrebase.initialize_app(firebase_config)
+storage = firebase.storage()
+
+class FileUploadScreen(BoxLayout):
+    def __init__(self, **kwargs):
+        super(FileUploadScreen, self).__init__(**kwargs)
+        self.orientation = 'vertical'
+
+        # Komponen FileChooser
+        self.filechooser = FileChooserIconView(filters=['*.png', '*.jpg', '*.jpeg', '*.txt'])
+        self.filechooser.bind(on_selection=self.on_file_select)
+        self.add_widget(self.filechooser)
+
+        # Tombol Unggah
+        self.upload_button = Button(text="Upload File", size_hint=(1, 0.1))
+        self.upload_button.bind(on_press=self.upload_file)
+        self.add_widget(self.upload_button)
+
+        # Label Status
+        self.status_label = Label(text="Pilih file untuk diunggah", size_hint=(1, 0.1))
+        self.add_widget(self.status_label)
+
+        # Gambar yang diunggah
+        self.uploaded_image = Image(size_hint=(1, 0.5))
+        self.add_widget(self.uploaded_image)
+
+    def on_file_select(self, filechooser, selection):
+        try:
+            if selection:
+                self.selected_file = selection[0]
+                self.status_label.text = f"File terpilih: {os.path.basename(self.selected_file)}"
+        except Exception as e:
+            self.status_label.text = f"Error dalam memilih file: {str(e)}"
+
+    def upload_file(self, instance):
+        if hasattr(self, 'selected_file'):
+            try:
+                # Mengunggah file ke Firebase Storage
+                file_name = os.path.basename(self.selected_file)
+                storage_path = f"uploads/{file_name}"
+                storage.child(storage_path).put(self.selected_file)
+                self.status_label.text = "File berhasil diunggah!"
+
+                # Menampilkan gambar yang diunggah
+                self.uploaded_image.source = self.selected_file
+                self.uploaded_image.reload()
+            except Exception as e:
+                self.status_label.text = f"Upload gagal: {str(e)}"
+        else:
+            self.status_label.text = "Pilih file terlebih dahulu."
+
+class FileUploadApp(App):
+    def build(self):
+        return FileUploadScreen()
+
+# Jalankan aplikasi
+if __name__ == '__main__':
+    FileUploadApp().run()

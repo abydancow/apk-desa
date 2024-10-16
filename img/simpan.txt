@@ -65,3 +65,54 @@
                     # import kivy folder
                     kv_file_path = os.path.join(os.path.dirname(__file__), '..', 'nama folder', 'nama file.kv')
                     Builder.load_file(kv_file_path)
+
+
+                    login_screen.some_method() 
+
+            # bagroud dua warna
+            canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Warna putih untuk sisi kiri
+            Rectangle:
+                pos: self.pos
+                size: self.width / 2, self.height
+
+            Color:
+                rgba: 0, 0, 0, 1  # Warna hitam untuk sisi kanan
+            Rectangle:
+                pos: self.x + self.width / 2, self.y
+                size: self.width / 2, self.height
+
+
+canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y)
+                            size: self.size
+                            radius: [10, 10, 10, 50]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y + 3)  
+                            size: self.size
+                            radius: [10, 10, 10, 50] 
+                        Color:
+                            rgba: 1, 1, 1, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y)
+                            size: (self.width + 4, self.height)
+                            radius: [10, 10, 10, 50]  
+                        Color:
+                            rgba: 1, 1, 1, 0.23
+                        RoundedRectangle:
+                            pos: (self.x +3, self.y - 5)  
+                            size: (self.width, self.height + 4)
+                            radius: [10, 10, 10, 50] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 0.7
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 10, 10, 50] 
