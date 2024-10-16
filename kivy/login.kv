@@ -10,9 +10,8 @@
     line_width: 1
     line_offset: 3
     size_hint_x: 0.8
-    
 
-<Login>:
+<LoginScreen>:
     BoxLayout:
         halign: 'center'
         orientation: 'vertical'
@@ -27,10 +26,10 @@
                 pos: self.pos
                 size: self.size
                 source: 'img/12.jpg' 
-                
+
         Widget:
             size_hint_x: 0.02 
-            
+
         BoxLayout:
             size_hint: 1, None 
             height: root.height * 0.6 
@@ -61,10 +60,10 @@
                 Color:
                     rgba: 154, 199, 241, 0.7
                 RoundedRectangle:
-                    pos: self.pos  # Tidak ada offset
+                    pos: self.pos
                     size: self.size
                     radius: [10]
-            
+
             Label:
                 text: 'Login'
                 font_size: 30
@@ -79,8 +78,8 @@
                 size_hint_x: 0.02 
 
             LineTextInput:
-                id: username
-                hint_text: 'Masukkan username'
+                id: email_input
+                hint_text: 'Masukan email'
                 multiline: False
                 size_hint_y: None
                 height: 40
@@ -91,7 +90,7 @@
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
             LineTextInput:
-                id: password
+                id: password_input
                 hint_text: 'Masukkan password'
                 multiline: False
                 size_hint_y: None
@@ -99,7 +98,7 @@
                 foreground_color: (0, 0, 0, 1)
                 line_width: 1
                 line_offset: 3
-                top: 10  # 
+                top: 10
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
             Widget:
@@ -120,8 +119,7 @@
                         pos: self.pos
                         size: self.size
                         radius: [10, 10, 10, 10]  
-                # on_press: app.login(username.text, password.text)
-                # pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_press: root.login()  
 
             Button:
                 text: 'belum memiliki akun ?'
@@ -130,12 +128,13 @@
                 background_color: (0, 0, 0, 0)  
                 background_normal: ""  
                 color: 0, 0, 1, 0.75
-
+                on_press:
+                    app.root.current = 'registrasi'
 
             Label:
                 id: error_label
                 text: ''
                 color: (1, 0, 0, 1)
+    
         Widget:
             size_hint_x: 0.02 
-            
