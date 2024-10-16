@@ -1,5 +1,5 @@
 #:kivy 2.3.0
-<LineTextInput@TextInput>:
+<RegistrasiLineTextInput@TextInput>:
     background_color: (0, 0, 0, 0)
     canvas.after:
         Color:
@@ -10,9 +10,8 @@
     line_width: 1
     line_offset: 3
     size_hint_x: 0.8
-    
 
-<Registrasi>:
+<RegistrasiScreen>:
     BoxLayout:
         halign: 'center'
         orientation: 'vertical'
@@ -27,11 +26,13 @@
                 pos: self.pos
                 size: self.size
                 source: 'img/12.jpg' 
+
         Widget:
             size_hint_x: 0.02 
+
         BoxLayout:
-            size_hint: 1, None  # set the height to a relative value
-            height: root.height * 0.7  # 50% of the parent's height
+            size_hint: 1, None
+            height: root.height * 0.7
             halign: 'center'
             orientation: 'vertical'
             spacing: 30
@@ -62,7 +63,7 @@
                     pos: self.pos  
                     size: self.size
                     radius: [10]
-            
+
             Label:
                 text: 'Buat akun'
                 font_size: 30
@@ -72,53 +73,44 @@
             Widget:
                 size_hint_x: 0.02 
 
-            LineTextInput:
+            RegistrasiLineTextInput:
                 id: username
                 hint_text: 'Masukkan username'
                 multiline: False
                 size_hint_y: None
                 height: 40
                 foreground_color: (0, 0, 0, 1)
-                line_width: 1
-                line_offset: 3
-                top: 10  
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-            LineTextInput:
+            RegistrasiLineTextInput:
                 id: nik
                 hint_text: 'Masukkan nik'
                 multiline: False
                 size_hint_y: None
                 height: 40
                 foreground_color: (0, 0, 0, 1)
-                line_width: 1
-                line_offset: 3
-                top: 10  
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-            LineTextInput:
+            RegistrasiLineTextInput:
                 id: email
                 hint_text: 'Masukkan email'
                 multiline: False
                 size_hint_y: None
                 height: 40
                 foreground_color: (0, 0, 0, 1)
-                line_width: 1
-                line_offset: 3
-                top: 10  
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-            LineTextInput:
+            RegistrasiLineTextInput:
                 id: password
                 hint_text: 'Masukkan password'
                 multiline: False
                 size_hint_y: None
                 height: 40
                 foreground_color: (0, 0, 0, 1)
-                line_width: 1
-                line_offset: 3
-                top: 10  
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            # Spinner:
+            #     id: role_spinner
+            #     text: 'Pilih Role'
+            #     values: ['user', 'admin']
+            #     size_hint_y: None
+            #     height: 40
 
             Button:
                 text: 'Registrasi'
@@ -134,13 +126,26 @@
                     RoundedRectangle:
                         pos: self.pos
                         size: self.size
-                        radius: [10, 10, 10, 10]
-                # on_press: app.login(username.text, password.text)
-        
-        
+                        radius: [10, 10, 10, 10]   
+                on_press:
+                    root.register_user()  
+            Button:
+                text: 'Login'
+                size_hint_y: None
+                height: '40dp'
+                size_hint_x: 0.5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                background_color: (0, 0, 0, 0)
+                color: (1, 1, 1, 1)  
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1 
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]   
+                on_press:
+                    app.root.current = 'login'
+
         Widget:
             size_hint_x: 0.02 
-
-
-
-            
