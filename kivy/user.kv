@@ -1,164 +1,641 @@
 #:kivy 2.3.0
-<MyGrid>:
+<UserScreen>:
     BoxLayout:
         orientation:'vertical'
-        size: root.width, root.height
-        spacing: 30
-        padding: 20
         canvas.before:
             Color:
                 rgba: 1, 1, 1, 1  
             Rectangle:
                 pos: self.pos
-                size: self.size
-                source: 'img/13.jpg'  
-
+                size: self.width * 0.92, self.height  
+            
+            Color:
+                rgba: 167/255, 217/255, 255/255, 1  
+            Rectangle:
+                pos: self.x + self.width * 0.92, self.y
+                size: self.width * 0.08, self.height 
         BoxLayout:
             orientation:'vertical'
-            size_hint: (1, 0.4)  
-            background_color: 0, 0, 0, 0  
-            spacing: 50
+            size_hint: 0.9, 0.4
+            pos_hint: {'x': 0.05, 'top': 1}
             canvas.before:
                 Color:
-                    rgba: 1, 1, 1, 0  
-                RoundedRectangle:
+                    rgba: 1, 1, 1, 1 
+                Rectangle:
+                    pos: self.x, self.y + self.height * 0.8
+                    # pos: self.pos
+                    size: self.width, self.height * 0.2 
+                Color:
+                    rgba: 167/255, 217/255, 255/255, 1  
+                Rectangle:
                     pos: self.pos
-                    size: self.size
-                    radius: [0, 0, 30, 30]
+                    size: self.width, self.height * 0.8
             BoxLayout:
-                orientation: 'horizontal'  
-                size_hint: (1, None)  
-                height: 60  
+                orientation:'vertical'
+                size_hint: 1, 0.2
                 padding: 10
-                Label:
-                    text: "User"
-                    color: 0, 0, 0, 1  
-                    size_hint_x: 0.5  
-                    valign: 'top'
-                    text_size: self.size
-            
-                Spinner:
-                    text: "Pilihan"
-                    values: ["Persuratan", "Pengaduan", "LogOut"]  
-                    size_hint_x: 0.5
-                    height: 40
-                    background_color: 0, 0, 0, 0  
+                spacing: 10
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.3  
+                    RoundedRectangle:
+                        pos: (self.x - 5, self.y) 
+                        size: self.width, self.height
+                        radius: [0, 0, 0, 50]
+                canvas:
+                    Color:
+                        rgba: 167/255, 217/255, 255/255, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [0, 0, 0, 50]
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint: 0.8, 0.4
+                    padding: 10
+                    spacing: 20
                     canvas.before:
                         Color:
-                            rgba: 0, 0, 0, 255.0  
+                            rgba: 0, 0, 0, 0.19
                         RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
                             size: self.size
+                            radius: [10, 10, 10, 50]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 10, 10, 50]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 4)
+                            radius: [10, 10, 10, 50] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
                             pos: self.pos
-                            radius: [10, 10, 10, 10]
-
-            Widget:
-                size_hint_x: 0.01   
-
-            Label:
-                text: 'DESA SANGGUNG Melayani pembuatan surat dan pengaduan'
-                padding: 10
-                color: 1, 1, 1, 1
-                font_size: 24
-                size_hint: (None, None)  
-                size: (300, 80)
-                halign: 'left'  
-                valign: 'middle'  
-                text_size: self.size  
-                canvas.after:
-                    Color:
-                        rgba: 0, 0, 0, 1  
-                    Line:
-                        points: [self.x, self.y - 8, self.x + self.width, self.y - 8]
-                        width: 1
+                            size: self.size
+                            radius: [10, 10, 10, 50]  
+                    Button:
+                        size_hint: 0.2, 0.98
+                        background_color: 0, 0, 0, 0
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 2, self.y)
+                                size: self.size
+                                radius: [50]
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 2, self.y)
+                                size: self.size
+                                radius: [50]
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 3)
+                                size: (self.width, self.height + 4)
+                                radius: [50]
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [50]
+                        Image:
+                            source: 'img/17.png'
+                            size_hint: None, None
+                            size: self.parent.width * 0.8, self.parent.height * 0.8
+                            pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                    BoxLayout:
+                        orientation:'horizontal'
+                        size_hint: 0.8, 1
+                        Label:
+                            id: username_label
+                            color: 0, 0, 0, 1
+                            size_hint: 0.4, 1
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                        Button:
+                            size_hint: 0.2, None
+                            height: 20
+                            pos_hint: {'right': 1, 'top': 1}
+                            padding: 10
+                            background_color: 0, 0, 0, 0
+                            on_press:
+                                app.root.current = 'login'
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x - 2, self.y)
+                                    size: self.size
+                                    radius: [10]
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x + 2, self.y)
+                                    size: self.size
+                                    radius: [10]
+                                Color:
+                                    rgba: 0, 0, 0, 0.23
+                                RoundedRectangle:
+                                    pos: (self.x, self.y - 3)
+                                    size: (self.width, self.height + 3)
+                                    radius: [10]
+                            canvas:
+                                Color:
+                                    rgba: 0, 0, 0, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10]
+                            Label:
+                                text:'Logout'
+                                color: 1, 1, 1, 1
+                                size_hint: None, None
+                                size: self.parent.width * 1, self.parent.height * 1
+                                pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2
+                                font_size: 10
                         
-            Widget:
-                size_hint_x: 0.02  
-
-        PageLayout:
-            size_hint: (1, 0.2)
-            padding: 50
-            Button:
-                text: "Halaman 1"
-                background_color: 1, 1, 1, 1  
-            Button:
-                text: "Halaman 2"
-                background_color: 1, 1, 1, 1  
-            Button:
-                text: "Halaman 3"
-                background_color: 1, 1, 1, 1  
-
-        GridLayout:
-            cols: 2 
-            size_hint_y: (0.4)
-            spacing: 10
-            Button:
-                background_color: 1, 1, 1, 1 
-                size_hint_y: None 
-                height: 250
+            BoxLayout:
+                orientation:'vertical'
+                size_hint: 0.95, 0.8
+                padding: 20
+                spacing: 10
                 canvas.before:
                     Color:
-                        rgba: 0, 0, 0, 0.19
+                        rgba: 0, 0, 0, 0.3  
                     RoundedRectangle:
-                        pos: (self.x - 2, self.y)
-                        size: self.size
-                        radius: [5]
-                    Color:
-                        rgba: 0, 0, 0, 0.19
-                    RoundedRectangle:
-                        pos: (self.x + 2, self.y)
-                        size: self.size
-                        radius: [5]
-                    Color:
-                        rgba: 0, 0, 0, 0.23
-                    RoundedRectangle:
-                        pos: (self.x, self.y - 3)
-                        size: (self.width, self.height + 4)
-                        radius: [5]
-                Image:
-                    source: 'img/6.png'
-                    size_hint: None, None
-                    size: self.parent.width * 0.8, self.parent.height * 0.4
-                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
-                Label:
-                    text: 'Struktur Desa'
-                    color: 1, 1, 1, 1
-                    size_hint: None, None
-                    size: self.parent.width * 0.2, self.parent.height * 0.4
-                    pos: self.parent.center_x - self.width / 2, self.parent.y
-
-            Button:
-                background_colour: 0, 0, 0, 0
-                size_hint_y: None  
-                height: 250
-                canvas.before:
-                    Color:
-                        rgba: 0, 0, 0, 0.19
-                    RoundedRectangle:
-                        pos: (self.x - 2, self.y)
-                        size: self.size
-                        radius: [5]
-
-                    Color:
-                        rgba: 0, 0, 0, 0.19
-                    RoundedRectangle:
-                        pos: (self.x + 2, self.y)
-                        size: self.size
-                        radius: [5]
-                    Color:
-                        rgba: 0, 0, 0, 0.23
-                    RoundedRectangle:
-                        pos: (self.x, self.y - 3)
-                        size: (self.width, self.height + 4)
-                        radius: [5]
+                        pos: (self.x + 5, self.y)   
+                        size: self.width , self.height
+                        radius: [0, 70, 0, 0]  
                     
-                Image:
-                    source: 'img/7.png'
-                    size_hint: None, None
-                    size: self.parent.width * 0.8, self.parent.height * 0.4
-                    pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
-                Label:
-                    text: 'Pengumuman Desa'
-                    color: 1, 1, 1, 1
-                    size_hint: None, None
-                    size: self.parent.width * 0.2, self.parent.height * 0.4
-                    pos: self.parent.center_x - self.width / 2, self.parent.y
+                canvas:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [0, 70, 0, 0]
+                BoxLayout:
+                    orientation:'vertical'
+                    size_hint: 1, None
+                    height: 182
+                    padding: 20
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x - 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 50, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.19
+                        RoundedRectangle:
+                            pos: (self.x + 3, self.y - 3)
+                            size: self.size
+                            radius: [10, 50, 10, 10]  
+                        Color:
+                            rgba: 0, 0, 0, 0.23
+                        RoundedRectangle:
+                            pos: (self.x, self.y - 5)  
+                            size: (self.width, self.height + 6)
+                            radius: [10, 50, 10, 10] 
+                    canvas:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            source: 'img/a2.jpg'  
+                            pos: self.pos
+                            size: self.size
+                            radius: [10, 50, 10, 10] 
+                    BoxLayout:
+                        size_hint: 0.98, None 
+                        height: root.height * 0.15 
+                        orientation: 'vertical'
+                        padding: 10
+                        anchor_center: True
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 2, self.y)
+                                size: self.size
+                                radius: [10, 50, 10, 10]
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 2, self.y)
+                                size: self.size
+                                radius: [10, 50, 10, 10]
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 4)
+                                size: (self.width, self.height + 3)
+                                radius: [10, 50, 10, 10]
+                            Color:
+                                rgba: 1, 1, 1, 0.7
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 50, 10, 10] 
+                        # Label:
+                        #     text: "About us:"
+                        #     color: 0, 0, 0, 1
+                        #     size_hint: 0.8, 0.1
+                        #     text_size: self.size
+                        #     halign: "center"
+                        #     valign: "top"
+                        # Widget:
+                        #     size_hint_y: 0.2
+                        Label:
+                            text: "Desa Sanggung"
+                            color: 1, 1, 1, 1
+                            size_hint: 0.5, 0.2
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                            background_color: 1, 1, 1, 1
+                            padding: 5, 5, 5, 5
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 0, 0, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10, 10, 10, 10] 
+                        Label:
+                            text: "About us:"
+                            color: 0, 0, 0, 1
+                            size_hint: 0.8, 0.2
+                            text_size: self.size
+                            font_size: 20
+                            halign: "left"
+                            valign: "bottom"
+                            padding: 30, 5, 0, 0
+                        Label:
+                            padding: 40, 0, 0, 0
+                            text: "Aplikasi pembuatan surat dan Pengaduan"
+                            color: 0, 0, 0, 1
+                            size_hint: 1, 0.25
+                            text_size: self.size  
+                            font_size: 19
+                            halign: "left"
+                            valign: "bottom"
+                ScrollView:
+                    id: my_scroll_view
+                    size_hint: 0.98, None
+                    height: 200
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    do_scroll_x: True
+                    do_scroll_y: False
+
+                    BoxLayout:
+                        size_hint_x: None
+                        height: 200  
+                        width: self.minimum_width
+                        orientation: 'horizontal'
+                        spacing: 30
+                        padding: 10
+ 
+                        Button:
+                            background_color: 0, 0, 0, 0  
+                            text: "berita 1"
+                            size_hint_x: None
+                            width: 400
+                            padding: 10
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x - 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x + 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.23
+                                RoundedRectangle:
+                                    pos: (self.x, self.y - 5)  
+                                    size: (self.width, self.height + 6)
+                                    radius: [10, 10, 10, 10] 
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10, 10, 10, 10] 
+                            Image:
+                                source: 'img/b2.jpg'
+                                size_hint: None, None
+                                size: self.parent.width * 0.9, self.parent.height * 0.9
+                                pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                        Button:
+                            background_color: 0, 0, 0, 0  
+                            text: "berita 2"
+                            size_hint_x: None
+                            width: 400
+                            padding: 10
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x - 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x + 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.23
+                                RoundedRectangle:
+                                    pos: (self.x, self.y - 5)  
+                                    size: (self.width, self.height + 6)
+                                    radius: [10, 10, 10, 10] 
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10, 10, 10, 10] 
+                            Image:
+                                source: 'img/b3.jpg'
+                                size_hint: None, None
+                                size: self.parent.width * 0.9, self.parent.height * 0.9
+                                pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                        Button:
+                            background_color: 0, 0, 0, 0  
+                            text: "berita 3"
+                            size_hint_x: None
+                            width: 400
+                            padding: 10
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x - 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.19
+                                RoundedRectangle:
+                                    pos: (self.x + 3, self.y - 3)
+                                    size: self.size
+                                    radius: [10, 10, 10, 10]  
+                                Color:
+                                    rgba: 0, 0, 0, 0.23
+                                RoundedRectangle:
+                                    pos: (self.x, self.y - 5)  
+                                    size: (self.width, self.height + 6)
+                                    radius: [10, 10, 10, 10] 
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10, 10, 10, 10] 
+                            Image:
+                                source: 'img/b4.jpg'
+                                size_hint: None, None
+                                size: self.parent.width * 0.9, self.parent.height * 0.9
+                                pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 2 
+                        
+                Widget:
+                    size_hint_y: 0.01
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: 0.9, 0.3
+            pos_hint: {'center_x': 0.5}
+            baground_color: 0, 0, 0, 0
+            padding: 0, 0, 0, 30
+            BoxLayout:
+                orientation:'vertical'
+                pos_hint: {'center_x': 0.5}
+                padding: 10, 0, 10, 25
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x - 2, self.y)
+                        size: self.size
+                        radius: [20, 20, 20, 20]
+                    Color:
+                        rgba: 0, 0, 0, 0.19
+                    RoundedRectangle:
+                        pos: (self.x + 2, self.y)
+                        size: self.size
+                        radius: [20, 20, 20, 20]
+                    Color:
+                        rgba: 0, 0, 0, 0.23
+                    RoundedRectangle:
+                        pos: (self.x, self.y - 7)
+                        size: (self.width, self.height + 3)
+                        radius: [20, 20, 20, 20]
+                canvas:
+                    Color:
+                        rgba: 167/255, 217/255, 255/255, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20, 20, 20, 20]   
+            
+                BoxLayout:
+                    orientation:'horizontal'
+                    spacing: 10
+                    Button:
+                        background_color: 0, 0, 0, 0 
+                        height: 150
+                        size_hint: 0.4, None
+                        padding: 10
+                        on_press:
+                            app.root.current = 'usurat'
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 3, self.y - 3) 
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 5)
+                                size: (self.width, self.height + 4)
+                                radius: [10, 10, 10, 10] 
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10] 
+                        Image:
+                            source: 'img/9.png'
+                            size_hint: None, None
+                            size: self.parent.width * 0.8, self.parent.height * 0.4
+                            pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 4
+                        Label:
+                            text: 'Persuratan'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            size: self.parent.width * 0.2, self.parent.height * 0.6
+                            pos: self.parent.center_x - self.width / 2, self.parent.y
+                    Button:
+                        background_color: 0, 0, 0, 0  
+                        size_hint: 0.4, None
+                        height: 150
+                        on_press:
+                            app.root.current = 'upengaduan'
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 5)  
+                                size: (self.width, self.height + 6)
+                                radius: [10, 10, 10, 10] 
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+                        Image:
+                            source: 'img/8.png'
+                            size_hint: None, None
+                            size: self.parent.width * 0.8, self.parent.height * 0.4
+                            pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 4
+                        Label:
+                            text: 'Pengaduan'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            size: self.parent.width * 0.2, self.parent.height * 0.6
+                            pos: self.parent.center_x - self.width / 2, self.parent.y  
+                BoxLayout:
+                    orientation:'horizontal'
+                    spacing: 10
+                    Button:
+                        background_color: 0, 0, 0, 0 
+                        size_hint: 0.4, None
+                        height: 150
+                        on_press:
+                            app.root.current = 'upengumuman'
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 5)  
+                                size: (self.width, self.height + 4)
+                                radius: [10, 10, 10, 10] 
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                        Image:
+                            source: 'img/7.png'
+                            size_hint: None, None
+                            size: self.parent.width * 0.8, self.parent.height * 0.4
+                            pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 4
+                        Label:
+                            text: 'Pengumuman'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            size: self.parent.width * 0.2, self.parent.height * 0.6
+                            pos: self.parent.center_x - self.width / 2, self.parent.y
+                    Button:
+                        background_color: 0, 0, 0, 0 
+                        size_hint: 0.4, None
+                        height: 150
+                        on_press:
+                            app.root.current = 'ustruktur'
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x - 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.19
+                            RoundedRectangle:
+                                pos: (self.x + 3, self.y - 3)
+                                size: self.size
+                                radius: [10, 10, 10, 10]  
+                            Color:
+                                rgba: 0, 0, 0, 0.23
+                            RoundedRectangle:
+                                pos: (self.x, self.y - 5)  
+                                size: (self.width, self.height + 4)
+                                radius: [10, 10, 10, 10] 
+                        canvas:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10] 
+                        Image:
+                            source: 'img/6.png'
+                            size_hint: None, None
+                            size: self.parent.width * 0.8, self.parent.height * 0.4
+                            pos: self.parent.center_x - self.width / 2, self.parent.center_y - self.height / 4
+                        Label:
+                            text: 'Struktur'
+                            color: 0, 0, 0, 1
+                            size_hint: None, None
+                            size: self.parent.width * 0.2, self.parent.height * 0.6
+                            pos: self.parent.center_x - self.width / 2, self.parent.y 
+    
