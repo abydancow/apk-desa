@@ -34,7 +34,7 @@
             size: self.size
             radius: [5]
 
-<MyGrid>:
+<AdminScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: 10
@@ -116,6 +116,9 @@
                     size: self.parent.width * 0.2, self.parent.height * 0.4
                     pos: self.parent.center_x - self.width / 2, self.parent.y
             MyButton:
+                on_press:
+                    print("Button pressed!")  
+                    app.root.current = 'login'
                 Image:
                     source: 'img/11.png'
                     size_hint: None, None
@@ -127,3 +130,4 @@
                     size_hint: None, None
                     size: self.parent.width * 0.2, self.parent.height * 0.4
                     pos: self.parent.center_x - self.width / 2, self.parent.y
+                
