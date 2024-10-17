@@ -25,7 +25,7 @@ class MyApp(App):
         Builder.load_file(os.path.join(kv_path, 'user.kv'))
         Builder.load_file(os.path.join(kv_path, 'usurat.kv'))
         Builder.load_file(os.path.join(kv_path, 'upengaduan.kv'))
-        Builder.load_file(os.path.join(kv_path, 'article.kv'))
+        # Builder.load_file(os.path.join(kv_path, 'article.kv'))
         Builder.load_file(os.path.join(kv_path, 'upengumuman.kv'))
         Builder.load_file(os.path.join(kv_path, 'ustruktur.kv'))
         sm = MyScreenManager()
