@@ -80,6 +80,9 @@
                     size: self.parent.width * 0.2, self.parent.height * 0.4
                     pos: self.parent.center_x - self.width / 2, self.parent.y
             MyButton:
+                on_press:
+                    print("Button pressed!")  
+                    app.root.current = 'pengumuman_list'
                 Image:
                     source: 'img/7.png'
                     size_hint: None, None

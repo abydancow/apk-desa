@@ -1,0 +1,207 @@
+#:kivy 2.3.0
+<ProductList>:
+    container: container
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Daftar Produk'
+            size_hint_y: None
+            height: 50
+            font_size: 24
+        
+        ScrollView:
+            GridLayout:
+                id: container
+                cols: 1
+                spacing: 10
+                size_hint_y: None
+                height: self.minimum_height
+        
+        Button:
+            text: 'Tambah Produk'
+            size_hint_y: None
+            height: 50
+            on_press: root.show_add_product()
+
+<AddProduct>:
+    name_input: name_input
+    price_input: price_input
+    stock_input: stock_input
+    image_preview: image_preview
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Tambah Produk Baru'
+            size_hint_y: None
+            height: 50
+            font_size: 24
+        
+        # Image preview and buttons
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 200
+            padding: [0, 10]
+            spacing: 10
+            
+            AsyncImage:
+                id: image_preview
+                source: ''
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: 150
+                canvas.before:
+                    Color:
+                        rgba: 0.9, 0.9, 0.9, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            
+            BoxLayout:
+                size_hint_y: None
+                height: 40
+                spacing: 10
+                
+                Button:
+                    text: 'Pilih Gambar'
+                    size_hint_x: 0.5
+                    on_press: root.choose_image()
+                
+                Button:
+                    text: 'Hapus Gambar'
+                    size_hint_x: 0.5
+                    on_press: root.clear_image()
+        
+        TextInput:
+            id: name_input
+            hint_text: 'Nama Produk'
+            size_hint_y: None
+            height: 40
+            multiline: False
+        
+        TextInput:
+            id: price_input
+            hint_text: 'Harga'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'float'
+        
+        TextInput:
+            id: stock_input
+            hint_text: 'Stok'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'int'
+        
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            
+            Button:
+                text: 'Batal'
+                on_press: root.cancel()
+            
+            Button:
+                text: 'Tambah'
+                on_press: root.add_product()
+
+<EditProduct>:
+    name_input: name_input
+    price_input: price_input
+    stock_input: stock_input
+    image_preview: image_preview
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Edit Produk'
+            size_hint_y: None
+            height: 50
+            font_size: 24
+        
+        # Image preview and buttons
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 200
+            padding: [0, 10]
+            spacing: 10
+            
+            AsyncImage:
+                id: image_preview
+                source: ''
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: 150
+                canvas.before:
+                    Color:
+                        rgba: 0.9, 0.9, 0.9, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            
+            BoxLayout:
+                size_hint_y: None
+                height: 40
+                spacing: 10
+                
+                Button:
+                    text: 'Pilih Gambar'
+                    size_hint_x: 0.5
+                    on_press: root.choose_image()
+                
+                Button:
+                    text: 'Hapus Gambar'
+                    size_hint_x: 0.5
+                    on_press: root.clear_image()
+        
+        TextInput:
+            id: name_input
+            hint_text: 'Nama Produk'
+            size_hint_y: None
+            height: 40
+            multiline: False
+        
+        TextInput:
+            id: price_input
+            hint_text: 'Harga'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'float'
+        
+        TextInput:
+            id: stock_input
+            hint_text: 'Stok'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'int'
+        
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            
+            Button:
+                text: 'Batal'
+                on_press: root.cancel()
+            
+            Button:
+                text: 'Update'
+                on_press: root.update_product()

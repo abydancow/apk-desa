@@ -1,0 +1,16 @@
+#:kivy 2.3.0
+<UserProductList>:
+    container: container
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Daftar Produk'
+            size_hint_y: None
+            height: 50
+            font_size: 20
+        ScrollView:
+            BoxLayout:
+                id: container
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
