@@ -37,7 +37,7 @@ class MyApp(App):
         sm.add_widget(UpengaduanScreen(name='upengaduan'))
         sm.add_widget(UpengumumanScreen(name='upengumuman'))
         sm.add_widget(Ustrukturscreen(name='ustruktur'))
-        sm.current = 'login'  # Menetapkan layar yang ditampilkan pertama kali
+        sm.current = 'user'  # Menetapkan layar yang ditampilkan pertama kali
         return sm
 
 if __name__ == '__main__':
