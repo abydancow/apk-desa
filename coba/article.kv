@@ -1,0 +1,30 @@
+#:kivy 2.3.0
+<ArticleScreen>:
+    title_input: title_input
+    content_input: content_input
+    image_input: image_input
+
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id: title_input
+            hint_text: "Judul Artikel"
+        TextInput:
+            id: content_input
+            hint_text: "Isi Artikel"
+        TextInput:
+            id: image_input
+            hint_text: "Path Gambar"
+            readonly: True
+        Button:
+            text: "Pilih Gambar"
+            on_press: root.open_filechooser()
+        Button:
+            text: "Tambahkan Artikel"
+            on_press: root.add_article()
+        ScrollView:
+            BoxLayout:
+                id: article_list
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
