@@ -68,6 +68,9 @@
                     size: self.parent.width * 0.2, self.parent.height * 0.4
                     pos: self.parent.center_x - self.width / 2, self.parent.y
             MyButton:
+                on_press:
+                    print("Button pressed!")  
+                    app.root.current = 'spengantar_list'
                 Image:
                     source: 'img/9.png'
                     size_hint: None, None

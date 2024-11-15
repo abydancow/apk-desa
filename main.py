@@ -14,8 +14,12 @@ from page.article import ProductList, AddProduct, EditProduct
 from kivy.lang import Builder 
 from kivy.core.window import Window
 from page.apengumuman import PengumumanList, AddPengumuman, EditPengumuman
+from page.spengantar import SpengantarList, SpengantarDetailScreen
+from page.uspengantar import AddUspengantar
+from kivy.properties import ObjectProperty,StringProperty
+
 class MyScreenManager(ScreenManager):
-    pass
+    user_email = StringProperty()
 
 class MyApp(App):
     def build(self):
@@ -32,6 +36,8 @@ class MyApp(App):
         Builder.load_file(os.path.join(kv_path, 'ustruktur.kv'))
         Builder.load_file(os.path.join(kv_path, 'uproduk.kv'))
         Builder.load_file(os.path.join(kv_path, 'apengumuman.kv'))
+        Builder.load_file(os.path.join(kv_path, 'spengantar.kv'))
+        Builder.load_file(os.path.join(kv_path, 'uspengantar.kv'))
         sm = MyScreenManager()
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(RegistrasiScreen(name='registrasi'))
@@ -48,6 +54,9 @@ class MyApp(App):
         sm.add_widget(PengumumanList(name='pengumuman_list'))
         sm.add_widget(AddPengumuman(name='add_pengumuman'))
         sm.add_widget(EditPengumuman(name='edit_pengumuman'))
+        sm.add_widget(SpengantarList(name='spengantar_list'))
+        sm.add_widget(SpengantarDetailScreen(name='spengantar_detail'))
+        sm.add_widget(AddUspengantar(name='add_uspengantar'))
         sm.current = 'login'  # Menetapkan layar yang ditampilkan pertama kali
         return sm
 

@@ -30,6 +30,8 @@ class LoginScreen(Screen):
 
         try:
             user = auth.sign_in_with_email_and_password(email, password)
+            # Simpan email di App
+            self.manager.user_email = email  
             user_id = user['localId']  
             user_data = db.child("users").child(user_id).get().val()
             print("User Data:", user_data)

@@ -57,7 +57,7 @@ class PengumumanItem(BoxLayout):
         super().__init__(**kwargs)
         self.orientation = 'vertical'  # Ubah orientasi menjadi vertikal
         self.size_hint_y = None
-        self.height = 100  # Tambah tinggi untuk ruang label dan tombol
+        self.height = 200  # Tambah tinggi untuk ruang label dan tombol
         self.padding = 10
         self.spacing = 2
 
